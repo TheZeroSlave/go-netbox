@@ -92,7 +92,7 @@ type DeviceWithConfigContext struct {
 	LastUpdated *strfmt.DateTime `json:"last_updated,omitempty"`
 
 	// Local context data
-	LocalContextData interface{} `json:"local_context_data,omitempty"`
+	LocalContextData json.RawMessage `json:"local_context_data,omitempty"`
 
 	// location
 	Location *NestedLocation `json:"location,omitempty"`
@@ -119,6 +119,9 @@ type DeviceWithConfigContext struct {
 
 	// primary ip6
 	PrimaryIp6 *NestedIPAddress `json:"primary_ip6,omitempty"`
+
+	//out of band ip
+	OOBIp *NestedIPAddress `json:"oob_ip,omitempty"`
 
 	// rack
 	Rack *NestedRack `json:"rack,omitempty"`
@@ -157,6 +160,12 @@ type DeviceWithConfigContext struct {
 
 	// virtual chassis
 	VirtualChassis *NestedVirtualChassis `json:"virtual_chassis,omitempty"`
+
+	// lat
+	Latitude *float64 `json:"latitude,omitempty"`
+	
+	// long
+	Longitude *float64 `json:"longitude,omitempty"`
 }
 
 // Validate validates this device with config context
